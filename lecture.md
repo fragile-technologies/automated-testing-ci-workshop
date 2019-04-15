@@ -158,7 +158,34 @@ Many developers don't practice TDD as closely as prescribed. Find a personal bal
 
 TDD is considered an **essential** skill for many companies as it tends to decrease the amount of bugs, increases code quality and leads to decoupled systems.
 
+## Continuous integration
 
+Anecdote:
+
+Imagine a big software organisation where developers work on their features. Every six months, according to the release schedule, developers all merge their work into the main branch and deploy said code. Integrating (resolving all conflicts!) and deployment take many days, weeks perhaps. Countless manhours are lost. Production issues occur because the merged code was incorrect.
+
+What went wrong? Modern software practice is to merge your branches often - as often as you can. And when merging, running your tests. This is yet another point where tests help. If your tests fail after the merge, then something is wrong and this needs to be addressed as soon as possible. If the tests fail before the merge, the merge is declined or halted to fix the tests.
+
+The process of merging your branches often, perhaps even multiple times a day, and running tests every time, before and after the merge, is called continuous integration.
+
+Benefits
+
+- Catch failing tests before merge
+- Merging often leads to fewer merge conflicts
+- Less time for requirements to change!
+- Leads to small, iterative changes rather than big, risky changesets.
+
+Many tools:
+
+- Jenkins (probably most popular)
+- TravisCI
+- CircleCI
+- GoCD
+- Many, many more
+
+### Pipelines
+
+One way to do CI. Built from stages. Can be declaratively built. Each stage operates on output of previous. Allow complex build processes to be split up and even run concurrently (at the same time). You can have pipelines that fan out and have conditional stages. Often uses a YAML file or, uniquely, a Jenkinsfile.
 
 ## Task
 
