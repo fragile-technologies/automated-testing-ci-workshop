@@ -18,18 +18,21 @@ jobs:
           name: run tests for first-example
           command: |
             cd ~/repo/first-example
+            pipenv install --dev
             pipenv run python -m pytest
 
       - run:
           name: run tests for second-example-with-types
           command: |
             cd ~/repo/second-example-with-types
+            pipenv install --dev
             pipenv run python -m pytest
 
       - run:
           name: run tests for mock-example
           command:
             cd ~/repo/mock-example
+            pipenv install --dev
             pipenv run python -m pytest
 
       - store_artifacts:
