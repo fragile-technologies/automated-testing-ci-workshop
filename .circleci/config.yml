@@ -1,0 +1,37 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.6.8
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - run:
+          name: install pipenv
+          command: |
+            pip install --user --upgrade pipenv
+
+      - run:
+          name: run tests for first-example
+          command: |
+            cd ~/repo/first-example
+            pipenv run pytest
+
+      - run:
+          name: run tests for second-example-with-types
+          command: |
+            cd ~/repo/second-example-with-types
+            pipenv run pytest
+
+      - run:
+          name: run tests for mock-example
+          command: |
+            cd ~/repo/mock-example
+            pipenv run pytest
+
+      - store_artifacts:
+          path: test-reports
+          destination: test-reports
