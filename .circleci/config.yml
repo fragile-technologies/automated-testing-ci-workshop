@@ -30,7 +30,7 @@ jobs:
 
       - run:
           name: run tests for mock-example
-          command:
+          command: |
             cd ~/repo/mock-example
             pipenv install --dev
             pipenv run python -m pytest
